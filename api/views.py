@@ -14,6 +14,8 @@ from .permissions import ProductPermission
 
 
 class OrderCreateView(generics.ListCreateAPIView):
+    "Создание заказа"
+    
     serializer_class = OrderSerializer
     queryset = Order.objects.all()
     pagination_class = None
@@ -23,12 +25,16 @@ class OrderCreateView(generics.ListCreateAPIView):
 
 
 class FavouriteCreateView(generics.ListCreateAPIView):
+    "Добавление в избранные"
+    
     serializer_class = FavouriteSerializer
     queryset = Favourite.objects.all()
     pagination_class = None
 
 
 class ProductViewSet(viewsets.ModelViewSet):
+    "Создание, редактирование, удаление, получение товаров"
+    
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     permission_classes = [ProductPermission]
@@ -42,6 +48,9 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 
 class ImageView(generics.ListCreateAPIView):
+  
+    "Добавление фотографий"
+    
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     # parser_classes = (MultiPartParser,FormParser,JSONParser, FileUploadParser)
