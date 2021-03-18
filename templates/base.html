@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+  {% block body %}
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'index_page' %}">Главная страница</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <a href="{% url 'logout' %}" class="btn btn-primary ml-2">Logout</a>
+          {%else%}
+          <form class="from-inline">
+            <div class="row">
+              <div class="col-md-10">
+              </div>
+              <div class="col-md-2">
+                <a href="{% url 'login' %}" class="btn btn-primary ml-2">Sign in</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary ml-2  ">Sign up</a>
+              </div>
+            </div>
+
+            
+          </form>
+          {% endif %}
+        </div>
+      </nav>
+      {% block content %}
+      {% endblock content %}
+      {% endblock body %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit business{% endblock title %}
+
+{% block content %}
+    <form method='post'>
+        {% csrf_token %}
+        {% include 'includes/form.html'%}
+        <button type='submit' class='btn btn-sm btn-primary'>Edit</button>
+    </form>
+{% endblock content %}

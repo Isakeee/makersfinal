@@ -1,0 +1,14 @@
+{% extends 'forform.html'%}
+
+{% block title %}
+    Delete business {{ bisuness }}
+{% endblock %}
+
+{% block content %}
+    <form method='post'>
+        {% csrf_token %}
+        <h3>Удалить дело "{{ business }}" ?</h3>
+        <a href="{% url 'index_page' %}" class="btn btn-primary btn-sm">Отменить</a>
+        <button type='submit'class="btn btn-danger btn-sm">Удалить</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% load widget_tweaks %}
+{% for field in form %}
+    <div class="row">
+        <div class="col-md-10">
+        {% render_field field class="form-control" placeholder="Add your todo"  %}
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'business_create' %}"><button class="btn btn-success">+</button></a>
+        </div>
+    </div>
+{% endfor %}
